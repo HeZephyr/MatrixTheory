@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+
+# Vscode
+.vscode/
+
+# Log
+*.log
