@@ -3,8 +3,8 @@ from sympy import Matrix
 
 '''
 Full-Rank Factorization
-parameter: A Matrix
-return: F, G Matrix
+@params: A Matrix
+@return: F, G Matrix
 '''
 def full_rank(A):
     r = A.rank()
@@ -22,15 +22,16 @@ def full_rank(A):
                 k.append(j)
                 break
     # 通过选中的列下标，构建F矩阵       
-    F = Matrix(A_arr1[:,k])
+    B = Matrix(A_arr1[:,k])
     # G就是取行最简行矩阵A的前r行构成的矩阵
-    G = Matrix(A_rref[:r])
-    print("F:", F)
-    print("G:", G)
-    return F, G
+    C = Matrix(A_rref[:r])
+
+    return B, C
 
 if __name__ == "__main__":
     # 表示矩阵A
     A = np.array([[1, 1, 0], [0, 1, 1], [-1, 0, 0], [1, 1, 1]])
     A = Matrix(A)
-    F, G = full_rank(A)
+    B, C = full_rank(A)
+    print("B:", B)
+    print("C:", C)
